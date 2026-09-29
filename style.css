@@ -1,0 +1,520 @@
+
+/* =========================================================
+   RVNX SECURITY TOOLKIT
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    background: #050505;
+    color: #e8e8e8;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    min-height: 72px;
+    padding: 18px clamp(20px, 5vw, 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 1px solid #181818;
+    background: rgba(5, 5, 5, 0.94);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    color: #f5f5f5;
+    font-size: clamp(21px, 2vw, 28px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 35px);
+}
+
+nav a {
+    color: #777;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #e51b3e;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: min(760px, 82vh);
+    padding: clamp(70px, 11vw, 150px) clamp(22px, 8vw, 130px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    isolation: isolate;
+}
+
+
+/* subtle red atmosphere */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: min(600px, 70vw);
+    height: min(600px, 70vw);
+    left: 42%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    background: #9d001f;
+    opacity: 0.055;
+    filter: blur(130px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.tag {
+    margin-bottom: 22px;
+    color: #e51b3e;
+    font-size: clamp(10px, 1vw, 13px);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.4vw, 5px);
+}
+
+.hero h2 {
+    max-width: 1000px;
+    color: #f1f1f1;
+    font-size: clamp(48px, 8vw, 105px);
+    line-height: 0.93;
+    letter-spacing: clamp(-4px, -0.3vw, -1px);
+    font-weight: 700;
+}
+
+.hero > p:not(.tag) {
+    max-width: 620px;
+    margin-top: 30px;
+    color: #777;
+    font-size: clamp(13px, 1.3vw, 16px);
+    line-height: 1.7;
+}
+
+#button {
+    width: fit-content;
+    margin-top: 32px;
+    padding: 13px 22px;
+    border: 1px solid #5e1725;
+    background: #0b0b0b;
+    color: #dcdcdc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+#button:hover {
+    border-color: #e51b3e;
+    background: #e51b3e;
+    color: #050505;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TOOLS AREA
+   ========================================================= */
+
+.tools {
+    width: min(1380px, 88%);
+    margin: 0 auto;
+    padding: clamp(40px, 7vw, 90px) 0 clamp(70px, 9vw, 130px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(18px, 2.5vw, 35px);
+    row-gap: 18px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   TOOL CARDS
+   ========================================================= */
+
+.tools-card {
+    min-width: 0;
+    padding: clamp(22px, 2.5vw, 32px);
+    background: #0a0a0a;
+    border: 1px solid #1c1c1c;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.tools-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 35px;
+    background: #e51b3e;
+    opacity: 0.7;
+    transition: height 0.3s ease;
+}
+
+.tools-card:hover {
+    border-color: #302024;
+    transform: translateY(-2px);
+}
+
+.tools-card:hover::after {
+    height: 100%;
+}
+
+.tools-card h3 {
+    margin-bottom: 9px;
+    color: #ededed;
+    font-size: clamp(15px, 1.3vw, 18px);
+    letter-spacing: 1.8px;
+}
+
+.tools-card > p {
+    margin-bottom: 19px;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+textarea,
+input {
+    width: 100%;
+    display: block;
+    padding: 13px 14px;
+    margin-bottom: 11px;
+    border: 1px solid #242424;
+    outline: none;
+    background: #060606;
+    color: #ddd;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    border-radius: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+    min-height: 105px;
+    resize: vertical;
+}
+
+textarea:focus,
+input:focus {
+    border-color: #7c1b2c;
+    box-shadow: 0 0 0 1px rgba(229, 27, 62, 0.12);
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #4d4d4d;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+    min-height: 40px;
+    padding: 10px 16px;
+    border: 1px solid #292929;
+    background: #101010;
+    color: #cfcfcf;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover {
+    background: #e51b3e;
+    border-color: #e51b3e;
+    color: #050505;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.result {
+    min-width: 0;
+    padding: clamp(20px, 2.5vw, 28px);
+    background: #080808;
+    border: 1px solid #181818;
+    overflow: hidden;
+}
+
+.result p {
+    margin-top: 13px;
+    margin-bottom: 7px;
+    color: #555;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.result p:first-child {
+    margin-top: 0;
+}
+
+.result code {
+    display: block;
+    width: 100%;
+    padding: 10px 11px;
+    border-left: 2px solid #671728;
+    background: #050505;
+    color: #c9c9c9;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   JWT
+   ========================================================= */
+
+#jwtHeader,
+#jwtPayload {
+    max-height: 190px;
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero {
+        min-height: 650px;
+
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .hero h2 {
+        max-width: 750px;
+    }
+
+    .tools {
+        width: 90%;
+
+        column-gap: 18px;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 680px) {
+
+    header {
+        min-height: auto;
+        padding: 17px 6%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 22px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+
+    .hero {
+        min-height: 620px;
+        padding: 75px 7% 80px;
+    }
+
+    .hero::before {
+        width: 380px;
+        height: 380px;
+        left: 55%;
+    }
+
+    .hero h2 {
+        font-size: clamp(45px, 14vw, 72px);
+        line-height: 0.94;
+        letter-spacing: -2px;
+    }
+
+    .hero > p:not(.tag) {
+        max-width: 500px;
+        margin-top: 25px;
+        font-size: 13px;
+    }
+
+    #button {
+        margin-top: 27px;
+        padding: 13px 19px;
+    }
+
+
+    .tools {
+        width: 88%;
+        padding-top: 35px;
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+    }
+
+    .tools-card {
+        padding: 24px 20px;
+    }
+
+    .result {
+        padding: 21px 18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    header {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 570px;
+
+        padding:
+            65px
+            20px
+            65px;
+    }
+
+    .hero h2 {
+        font-size: 43px;
+    }
+
+    .tag {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .tools {
+        width: calc(100% - 32px);
+    }
+
+    .tools-card {
+        padding: 21px 17px;
+    }
+
+    textarea,
+    input {
+        font-size: 12px;
+        padding: 12px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .result code {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) {
+
+    .tools-card:hover {
+        transform: none;
+        border-color: #1c1c1c;
+    }
+
+    .tools-card:hover::after {
+        height: 35px;
+    }
+}
+
+#button {
+    display: inline-block;
+    text-decoration: none;
+}

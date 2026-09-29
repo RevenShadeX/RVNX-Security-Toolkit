@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolkit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header> 
+        <h1>
+            Reven
+        </h1>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Tools</a>
+            <a href="">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="tag">CYBERSECURITY TOOLKIT</p>
+            <h2>Security tools <br> Built for learning</h2>
+            <p>
+                A lightweight toolkit made for cybersecurity utilities
+                Built with html, css and javaScript
+            </p>
+
+            <button id="button">EXPLORE TOOLS</button>
+            
+        </section>
+
+        <section id="tools" class="tools">
+            <div class="tools-card">
+<!-- SHA256 HASHg -->
+                <h3>SHA-256 HASH</h3>
+                <p>Generate a SHA-256 HASH from TEXT</p>
+                <textarea id="hashInput" placeholder="Enter text to hash..."></textarea>
+                <button id="hashButton">GENERATE HASH</button>
+            </div>
+            <div class="result">
+                <p>SHA-256</p>
+                <code id="hashOutput">Waiting for input...</code>
+                <button id="copyHash">COPY</button>
+            </div>
+
+<!--//BSE 64 -->
+            <div class="tools-card">
+                <h3>BASE-64</h3>
+                <p>ENCODE And DECODE Bse64 Data</p>
+                <textarea id="base64Input" placeholder="Enter text..."></textarea>
+                
+                <div>
+                    <button id="encodeBase64">ENCODE</button>
+                    <button id="decodeBase64">DECODE</button>
+                </div>
+                <div class="result">
+                    <p>RESULT</p>
+                    
+                    <code id="base64Output">Waiting for input...</code>
+                    <button id="copyBase64">COPY</button>
+                </div>
+            </div>
+
+<!--//PASSWD CHECKER -->
+            <div class="tools-card">
+                <h3>PASSWORD SECURITY</h3>
+                <p> Analyze password strength locally</p>
+                <input type="password" id="passwordInput" placeholder="Enter a test password...">
+                <button id="checkPassword">CHECK PASSWORD</button>
+                <div class="result">
+                    <p>STRENGTH</p>
+                    <code id="passwordStrength">Waiting for input...</code>
+
+                    <p>LENGTH</p>
+                    <code id="passwordLength">-</code>
+                    ss
+                    <p>CHARACTERS</p>
+                    <code id="passwordCharacters">-</code>
+                    <p>BREACH STATUS</p>
+                    <code id="breachStatus">Not checked</code>
+
+            </div>
+            </div>  
+
+<!--//JWT decoder -->
+            <div class="tools-card">
+                <h3>JWT DECODER</h3>
+                <p>Decode Content of a JWT</p>
+                <textarea id="jwtInput" placeholder="Paste your wJWT here"></textarea>
+                <button id="decodeJWT">DECODE</button>
+                <div class="result">
+                    <p>HEADER</p>
+                    <code id="jwtHeader">Waiting for input...</code>
+                    <p>PAYLOAD</p>
+                    <code id="jwtPayload">Waiting for input...</code>
+                    <p>SIGNATURE</p>
+                    <code id="jwtSignature">Waiting for input...</code>
+                </div>
+
+            </div>
+<!--//NETWORK scanner-->
+
+        </section>
+
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>
