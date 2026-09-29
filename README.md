@@ -65,8 +65,6 @@ RVNX-Security-Toolkit/
 ├── index.html
 ├── style.css
 ├── script.js
-└── assets/
-    └── ...
 ```
 
 ## Running Locally
